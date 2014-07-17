@@ -46,9 +46,10 @@ def shut_interface_and_creat_syslog(counter):
     interfaces_list = cli("show int description | grep eth")
     s = interfaces_list.split("\n")
     match = re.search("(.*) eth \s*", s[counter])
-    match.group(1)
+    #match.group(1)
+    str = "Found CRC errrors > threshold on intreface eth"+match.group(1)
     #create a syslog
-    syslog(1,"Found CRC errrors > threshold on intreface eth", match.group(1));
+    syslog.syslog(1,str);
 
     #call cli to shut the interface.
     cli("conf t")
