@@ -14,7 +14,7 @@
 Auto-detect and block malformed ARP requests coming from random sources and excessive ARP/GARP requests
 
 The Python script allows a Nexus 7000 system to automatically detect if malformed ARP packets (length greater than 128 bytes) are hitting the control plane.
-Upon detection via deep packet inspection, the script creates a separate ARP access-list with the offending mac addresses. The “quarantine” access-list can be policed separately, allowing control plane protection.
+Upon detection via deep packet inspection, the script creates a separate ARP access-list with the offending mac addresses. The "quarantine" access-list can be policed separately, allowing control plane protection.
 Example:
 ARP access list copp-arp-quarantine
 10 permit ip any mac host 0000.0700.0700
