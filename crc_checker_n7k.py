@@ -41,7 +41,7 @@ import syslog
 threshold = 10
 
 
-def shut_interface_and_creat_syslog(counter):
+def shut_interface_and_create_syslog(counter):
    # print "input counter:",counter
     interfaces_list = cli("show int description | grep eth")
     s = interfaces_list.split("\n")
@@ -70,7 +70,7 @@ def main():
             if int(match.group(1)) > threshold:
                 print "found CRC errors > ", threshold
                 #shut the interface with crc errors> threshold
-                shut_interface(counter)                
+                shut_interface_and_create_syslog(counter)                
         counter +=1
     print "finished running CRC checker script"
     print "----------------------------------"
